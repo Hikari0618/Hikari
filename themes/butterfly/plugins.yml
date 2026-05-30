@@ -54,6 +54,10 @@ click_heart:
   name: butterfly-extsrc
   file: dist/click-heart.min.js
   version: 1.1.6
+color_thief:
+  name: color-thief
+  file: dist/color-thief.min.js
+  version: 2.3.2
 disqusjs:
   name: disqusjs
   file: dist/browser/disqusjs.es2015.umd.min.js
