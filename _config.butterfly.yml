@@ -1058,10 +1058,22 @@ css_prefix: true
 # Insert the code to head (before '</head>' tag) and the bottom (before '</body>' tag)
 inject:
   head:
-    - '<style>#footer { background-color: #333 !important; }</style>'
-    # - <link rel="stylesheet" href="/xxx.css">
+     - <link rel="stylesheet" href="/xxx.css">
   bottom:
-    # - <script src="xxxx"></script>
+    - <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.2/color-thief.min.js"></script>
+    - <script>
+        window.addEventListener('load', function() {
+          var img = document.querySelector('.post_cover img') || document.querySelector('.avatar-img') || document.querySelector('#footer-banner');
+          if (!img || !img.complete) return;
+          try {
+            var thief = new ColorThief();
+            var color = thief.getColor(img);
+            var rgb = color[0] + ',' + color[1] + ',' + color[2];
+            document.querySelector('#footer').style.backgroundColor = 'rgb(' + rgb + ')';
+            document.querySelector('.footer-other').style.backgroundColor = 'rgba(0,0,0,0.15)';
+          } catch(e) {}
+        });
+      </script>
 
 # CDN Settings
 # Don't modify the following settings unless you know how they work
